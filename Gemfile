@@ -38,3 +38,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'pry-rails'
+end
+
+gem 'foundation-rails'
+
+gem 'devise'
+gem 'omniauth-facebook'
