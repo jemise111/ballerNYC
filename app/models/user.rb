@@ -5,11 +5,18 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:facebook]
 
+  validates(:name, presence: true)
+  validates(:zip_code, numericality: { only_integer: true,
+                                       greater_than_or_equal_to: 00000,
+                                       less_than_or_equal_to: 99999 },
+                       allow_blank: true)
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      # Add to this when update migrations
+      user.name = auth.info.name
+      user.image_url = auth.info.image
     end
   end
 

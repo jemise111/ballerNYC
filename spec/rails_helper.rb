@@ -3,6 +3,9 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'shoulda/matchers'
+require 'capybara/rails'
+require 'capybara/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -40,4 +43,54 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+end
+
+# Helper for testing with Omniauth-facebook
+def conditional_sign_out
+  visit '/'
+  click_link 'Sign out' if page.has_css?('#sign-out-link')
+end
+
+def valid_sign_in_with_facebook
+  conditional_sign_out
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    :provider => 'facebook',
+    :uid => '100005454168145',
+    :info => {
+      :email => 'fobejzc_vijayvergiyasen_1403894038@tfbnw.net',
+      :password => 'abc12345',
+      :name => 'Karen Amededafhade Vijayvergiyasen',
+      :image => ''
+    }
+  })
+  visit '/users/sign_in'
+  click_link 'Sign in with Facebook'
+end
+
+def invalid_sign_in_with_facebook
+  conditional_sign_out
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+  visit '/users/sign_in'
+  click_link 'Sign in with Facebook'
+end
+
+def sign_up(name, email, password, zip_code)
+  conditional_sign_out
+  visit '/users/sign_up'
+  fill_in 'Name', with: name
+  fill_in 'Email', with: email
+  fill_in 'Password', with: password
+  fill_in 'Password confirmation', with: password
+  fill_in 'Zip Code', with: zip_code
+  click_button 'Sign up'
+end
+
+def sign_in(email, password)
+  conditional_sign_out
+  visit '/users/sign_in'
+  fill_in 'Email', with: email
+  fill_in 'Password', with: password
+  click_button 'Sign in'
 end
