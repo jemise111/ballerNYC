@@ -19,3 +19,9 @@
 .profile-picture {
   border-radius: 100%;
 }
+
+@media only screen and (max-width: 630px) {
+  .profile-picture {
+    display: none;
+  }
+}
