@@ -48,6 +48,6 @@ group :development, :test do
 end
 
 gem 'foundation-rails'
-
+gem 'crack'
 gem 'devise'
 gem 'omniauth-facebook'

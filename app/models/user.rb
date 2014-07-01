@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   validates(:zip_code, numericality: { only_integer: true,
                                        greater_than_or_equal_to: 00000,
                                        less_than_or_equal_to: 99999 },
-                       allow_blank: true)
+                                       allow_blank: true)
+  has_and_belongs_to_many(:courts)
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

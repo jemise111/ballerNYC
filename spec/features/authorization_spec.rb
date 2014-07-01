@@ -23,4 +23,9 @@ feature "A user can sign up and sign in" do
     sign_in("jesse@sessler.com", "wrong")
     expect(page).to have_content("Invalid email or password")
   end
+
+  scenario "should not sign in a user with an invalid facebook credentials" do
+    invalid_sign_in_with_facebook
+    expect(page).to have_content("Could not authenticate you")
+  end
 end

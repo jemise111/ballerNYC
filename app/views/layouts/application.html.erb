@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&v=3.exp"></script>
   </head>
 
   <body>
@@ -18,7 +19,7 @@
         <li class="name">
           <h1><a href="#">BallerNYC</a></h1>
         </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
 
       <section class="top-bar-section">
@@ -33,6 +34,19 @@
           <% end %>
         </ul>
       </section>
+      <ul class="left">
+        <li class="has-form">
+          <div class="row collapse">
+            <div class="small-9 columns">
+              <%= text_field_tag :q, nil, placeholder: 'search by location', class: "top-nav-court-search" %>
+            </div>
+            <div class="small-3 columns">
+              <%= button_tag("go", class: "top-nav-court-search button expand") %>
+            </div>
+          </div>
+        </form>
+        </li>
+      </ul>
     </nav>
 
     <%= yield %>

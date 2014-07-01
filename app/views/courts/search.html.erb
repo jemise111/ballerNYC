@@ -1,0 +1,8 @@
+<p><%= flash[:no_results] %></p>
+<% if @limit_result_courts.empty? %>
+  <p>No courts found</p>
+<% end %>
+
+<% @limit_result_courts.each do |court| %>
+  <p><%= court.name %></p>
+<% end %>
