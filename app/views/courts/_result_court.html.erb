@@ -1,11 +1,15 @@
 <div class="result-court-box">
   <div class="result-court-box-inner">
-    <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= court.latitude %>,<%= court.longitude %>&size=400x400&zoom=20&maptype=satellite" />
+    <a href="/courts/<%= court.id %>">
+      <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= court.latitude %>,<%= court.longitude %>&size=400x400&zoom=20&maptype=satellite" />
+    </a>
     <div class="result-court-overlay">
       Placeholder Text
     </div>
   </div>
   <div class="result-court-footer">
-    <%= court.name %>
+    <a href="/courts/<%= court.id %>">
+      <%= court.name %>
+    </a>
   </div>
 </div>

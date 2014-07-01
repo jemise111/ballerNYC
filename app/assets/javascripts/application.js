@@ -18,7 +18,7 @@
 $(document).foundation();
 $(document).ready(function(){
   navSearchBox();
-  courtResultOverlay();
+  courtResultsScripts();
 });
 
 function navSearchBox() {

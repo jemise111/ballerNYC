@@ -58,6 +58,16 @@
   padding-top: 5px;
 }
 
+#map-container {
+  height: 300px;
+  margin: 10px auto 0 auto;
+  width: 80%;
+}
+
+#map-canvas {
+  height: 100%;
+}
+
 @media only screen and (max-width: 630px) {
   .profile-picture {
     display: none;
