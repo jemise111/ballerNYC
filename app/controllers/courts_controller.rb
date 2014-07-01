@@ -16,7 +16,7 @@ class CourtsController < ApplicationController
 
   def search
     if params[:lat] == 'error' # custom error code
-      flash.now[:no_results] = 'No courts found'
+      @limit_result_courts = []
     else
       lat_lon = [params[:lat].to_f, params[:lon].to_f]
       result_courts = Court.courts_near(lat_lon)

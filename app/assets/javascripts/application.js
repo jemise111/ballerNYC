@@ -18,6 +18,7 @@
 $(document).foundation();
 $(document).ready(function(){
   navSearchBox();
+  courtResultOverlay();
 });
 
 function navSearchBox() {

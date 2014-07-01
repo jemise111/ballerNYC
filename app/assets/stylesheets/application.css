@@ -21,8 +21,49 @@
   height: 42px;
 }
 
+#court-search-results {
+  text-align: center;
+}
+
+.result-court-box {
+  display: inline-block;
+  height: 220px;
+  margin: 30px;
+  text-align: center;
+  vertical-align: middle;
+  width: 250px;
+}
+
+.result-court-box img {
+  height: 200px;
+  width: auto;
+}
+
+.result-court-box-inner {
+  height: 200px;
+  overflow: hidden;
+}
+
+.result-court-overlay {
+  background: grey;
+  color: white;
+  height: 50px;
+  margin: 0 auto;
+  opacity: .8;
+  padding: 10px;
+  width: 200px;
+}
+
+.result-court-footer {
+  padding-top: 5px;
+}
+
 @media only screen and (max-width: 630px) {
   .profile-picture {
     display: none;
+  }
+
+  .result-court-overlay {
+    margin: -50px auto 0 auto;
   }
 }
