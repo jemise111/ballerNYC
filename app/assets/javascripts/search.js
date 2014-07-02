@@ -8,14 +8,14 @@ function courtResultsScripts() {
 
 function courtResultOverlay(){
   if ($(window).width() > 630) {
-    $(".result-court-box-inner img").mouseenter(function(){
-      $(this).parent().parent().find('.result-court-overlay').animate({
+    $(".result-court-box-inner").mouseenter(function(){
+      $(this).find('.result-court-overlay').animate({
         "margin-top": "-50px"
       });
     });
-    $(".result-court-box-inner img").mouseleave(function(){
-      $(this).parent().parent().find('.result-court-overlay').animate({
-        "margin-top": "0px"
+    $(".result-court-box-inner").mouseleave(function(){
+      $(this).find('.result-court-overlay').animate({
+        "margin-top": "-25px"
       });
     });
   }
@@ -27,9 +27,17 @@ function initializeGoogleMap(){
   var lon = parseFloat(queryString.split("&")[1].replace(/lon=/,""));
   var centerPoint = new google.maps.LatLng(lat, lon);
   var mapOptions = {
-    zoom: 15,
+    zoom: 14,
     center: centerPoint,
-    scrollwheel: false
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
+    scrollwheel: false,
+    zoomControl: true,
+    zoomControlOptions: {
+      style: google.maps.ZoomControlStyle.SMALL
+    }
   };
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   placeMarkers(map);

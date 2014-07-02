@@ -30,9 +30,9 @@
 // $include-print-styles: true;
 // $include-html-global-classes: $include-html-classes;
 
-// Grid 
+// Grid
 
-// $include-html-block-grid-classes: $include-html-classes; 
+// $include-html-block-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
 // $row-width: rem-calc(1000);
@@ -47,7 +47,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Roboto", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 
@@ -178,7 +178,10 @@
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-// $anchor-text-decoration-hover: none;
+$anchor-text-decoration-hover: underline;
+.top-bar a:hover {
+  text-decoration: none;
+}
 // $anchor-font-color: $primary-color;
 // $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
 
@@ -1186,16 +1189,20 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #000;
+
+.top-bar {
+  opacity: 0.85;
+}
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: 70px;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: rem-calc(30);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #333;
@@ -1212,7 +1219,7 @@
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: $font-weight-normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size: rem-calc(16);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-color-hover: #555555;
