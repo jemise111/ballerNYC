@@ -9,12 +9,12 @@ function courtResultsScripts() {
 function courtResultOverlay(){
   if ($(window).width() > 630) {
     $(".result-court-box-inner").mouseenter(function(){
-      $(this).find('.result-court-overlay').animate({
+      $(this).find('.result-court-footer').animate({
         "margin-top": "-50px"
       });
     });
     $(".result-court-box-inner").mouseleave(function(){
-      $(this).find('.result-court-overlay').animate({
+      $(this).find('.result-court-footer').animate({
         "margin-top": "-25px"
       });
     });
@@ -52,7 +52,7 @@ function placeMarkers(map) {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, lon),
         animation: google.maps.Animation.DROP,
-        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
         map: map
       });
     }, 1000 + i*100);
@@ -70,7 +70,7 @@ function setupMarkerAnimation(map){
       var lon = parseFloat(latLon.split(",")[1]);
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, lon),
-        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
         map: map
       });
     });

@@ -49,8 +49,10 @@ function googleGeocode(query) {
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': query }, function(results, status) {
       // use custom 'error' code to be used in controller
+      mine = results;
+      console.log(status);
       if (status !== google.maps.GeocoderStatus.OK) { results[0].geometry.location.k = 'error'; }
-      window.location.href = "/courts/search?lat=" + results[0].geometry.location.k + "&lon=" + results[0].geometry.location.A;
+      window.location.href = "/courts/search?lat=" + results[0].geometry.location.k + "&lon=" + results[0].geometry.location.B;
     });
   }
 }
