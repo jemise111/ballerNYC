@@ -126,6 +126,21 @@ body {
   max-width: none;
 }
 
+#profile-left-bar {
+  background: black;
+  display: inline-block;
+  height: 300px;
+  width: 30%;
+}
+
+#profile-right-section {
+  background: red;
+  display: inline-block;
+  height: 800px;
+  width: 55%;
+  vertical-align: top;
+}
+
 @media only screen and (max-width: 630px) {
   .top-bar-section ul {
     width: 50%;
@@ -148,5 +163,17 @@ body {
     margin: 10px auto 0 auto;
     position: static;
     width: 80%;
+  }
+
+  #profile-left-bar {
+    display: block;
+    width: 100%;
+  }
+
+  #profile-right-section {
+    background: red;
+    display: block;
+    height: 800px;
+    width: 100%;
   }
 }
