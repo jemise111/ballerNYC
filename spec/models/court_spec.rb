@@ -4,7 +4,7 @@ describe Court do
 
   it { should have_and_belong_to_many(:users) }
   # it { should have_many(:comments).dependent(:delete_all) }
-  # it { should have_many(:games).dependent(:delete_all) }
+  it { should have_many(:games).dependent(:delete_all) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:location) }
   it { should validate_presence_of(:borough) }

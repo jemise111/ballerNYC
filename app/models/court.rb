@@ -3,7 +3,7 @@ class Court < ActiveRecord::Base
   CLOSE_DISTANCE = 1
 
   # has_many(:comments, dependent: :delete_all)
-  # has_many(:games, dependent: :delete_all)
+  has_many(:games, dependent: :delete_all)
   has_and_belongs_to_many(:users)
   validates(:name, :location, :borough, presence: true)
   validates(:num_courts, :latitude, :longitude, numericality: true)

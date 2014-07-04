@@ -22,6 +22,7 @@ $(document).ready(function(){
   setWelcomeTopHeight();
   animatedTyping();
   learnMoreLink();
+  displaySignInForm();
 });
 
 function navSearchBox() {
@@ -59,7 +60,7 @@ function googleGeocode(query) {
 
 function animatedTyping() {
   if ($('#animated-typing').size() > 0) {
-    var toAdd = ["","","","","", "F", "i", "n", "d", " ", "A", " ", "C", "o", "u",
+    var toAdd = ["F", "i", "n", "d", " ", "A", " ", "C", "o", "u",
                    "r", "t",".", " ","","","<br>","&nbsp;","&nbsp;","&nbsp;",
                    "S", "t", "a", "r", "t", " ", "B", "a", "l", "l","i", "n",
                    "'","<br>","","","","",
@@ -98,4 +99,10 @@ function learnMoreLink() {
       }, 200);
     }, 200);
   });
+}
+
+function displaySignInForm() {
+  setTimeout(function() {
+    $('#sign-in-form').css('visibility','visible').hide().fadeIn('slow');
+  }, 3500);
 }
