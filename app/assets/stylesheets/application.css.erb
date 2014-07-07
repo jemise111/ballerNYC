@@ -175,18 +175,30 @@ body {
 }
 
 #profile-left-bar {
-  background: black;
+  background: grey;
   display: inline-block;
-  height: 300px;
-  width: 30%;
+}
+
+#profile-left-bar span {
+  display: inline;
 }
 
 #profile-right-section {
-  background: red;
   display: inline-block;
   height: 800px;
   width: 55%;
   vertical-align: top;
+}
+
+.game-view {
+  background: white;
+}
+
+/* From http://css-tricks.com/snippets/css/css-box-shadow/ */
+.one-edge-shadow {
+  -webkit-box-shadow: 0 8px 6px -6px grey;
+     -moz-box-shadow: 0 8px 6px -6px grey;
+          box-shadow: 0 8px 6px -6px grey;
 }
 
 @media only screen and (max-width: 630px) {
@@ -213,15 +225,7 @@ body {
     width: 80%;
   }
 
-  #profile-left-bar {
-    display: block;
-    width: 100%;
-  }
-
-  #profile-right-section {
-    background: red;
-    display: block;
-    height: 800px;
-    width: 100%;
+  #profile-left-bar span {
+    display: none;
   }
 }

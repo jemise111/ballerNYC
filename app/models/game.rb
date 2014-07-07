@@ -2,8 +2,8 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many(:users)
   belongs_to(:court)
   validates(:start_at, presence: true)
-  validates(:skill_level, numericality: {only_integer: true})
-  validate(:start_at_cannot_be_in_the_past)
+  validates(:skill_level, numericality: { only_integer: true }, allow_blank: true)
+  # validate(:start_at_cannot_be_in_the_past)
 
   def start_at_cannot_be_in_the_past
     if start_at && start_at.to_time.to_i < Time.now.to_i

@@ -1,3 +1,24 @@
-<div id="profile-left-bar"></div>
+<div id="profile-left-bar">
+  <ul class="side-nav">
+    <li><a href="#"><i class="fa fa-calendar"></i> <span>My Upcoming Games</span></a></li>
+    <li><a href="#game-history"><i class="fa fa-history"></i> <span>Game History</span></a></li>
+    <li><a href="#subscribed-courts"><i class="fa fa-rss"></i> <span>Courts I'm Subscribed To</span></a></li>
+    <li><a href="#"><i class="fa fa-pencil"></i> <span>Edit My Info</span></a></li>
+  </ul>
+</div>
 
-<div id="profile-right-section"></div>
+<div id="profile-right-section">
+</div>
+
+<script type="text/template" id="game-template">
+  <h3><%%= start_at %></h3>
+  <a href="/courts/<%%= court.get('id') %>"><%%= court.get('name') %></a>
+  <h4>Ballers</h4>
+  <ul>
+    <%% _.each(users, function(user) { %>
+      <li><%%= user.get('name') %></li>
+    <%% }); %>
+  </ul>
+</script>
+
+<%= javascript_include_tag 'backboneApp' %>

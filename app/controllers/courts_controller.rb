@@ -1,10 +1,24 @@
 class CourtsController < ApplicationController
 
+  before_action :determine_scope
+
   # Keep under minimum for courts in Staten Island
   MAX_TO_DISPLAY = 25
 
+  def index
+    @courts = @scope.all
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @courts.to_json }
+    end
+  end
+
   def show
     @court = Court.find(params[:id])
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @court.to_json }
+    end
   end
 
   def search
@@ -15,5 +29,11 @@ class CourtsController < ApplicationController
       result_courts = Court.courts_near(lat_lon)
       @limit_result_courts = result_courts.values.sort { |a, b| result_courts.key(a) <=> result_courts.key(b) }.first(20)
     end
+  end
+
+  private
+
+  def determine_scope
+    @scope = params[:user_id] ? User.find(params[:user_id]).courts : Court
   end
 end
