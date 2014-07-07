@@ -11,12 +11,12 @@ function courtResultOverlay(){
     $(".result-court-box-inner").mouseenter(function(){
       $(this).find('.result-court-footer').animate({
         "margin-top": "-50px"
-      });
+      }, 100);
     });
     $(".result-court-box-inner").mouseleave(function(){
       $(this).find('.result-court-footer').animate({
         "margin-top": "-25px"
-      });
+      }, 100);
     });
   }
 }

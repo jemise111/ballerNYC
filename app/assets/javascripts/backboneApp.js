@@ -7,8 +7,6 @@
 //= require backbone/router
 
 $(function(){
-  if ($('#profile-left-bar').length > 0) {
-    ballerRouter = new BallerRouter();
-    ballerRouter.start();
-  }
+  ballerRouter = new BallerRouter();
+  ballerRouter.start();
 }());
