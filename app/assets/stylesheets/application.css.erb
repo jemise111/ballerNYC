@@ -22,6 +22,11 @@ body {
   background-attachment: fixed;
 }
 
+.notice, .alert {
+  color: red;
+  display: inline;
+}
+
 .top-bar .row {
   margin-top: 12px;
 }
@@ -88,6 +93,7 @@ body {
   background: #420002;
   border: none;
   color: white;
+  cursor: pointer;
   font: 14px "Source Sans Pro", "Helvetica", Helvetica, Arial, sans-serif;
   height: 35px;
   width: 65px;
@@ -98,6 +104,10 @@ body {
   padding: 10px;
   text-align: center;
   width: 100%;
+}
+
+.facebook-sign-in a {
+  color: white;
 }
 
 #welcome-about {
@@ -194,11 +204,48 @@ body {
   background: white;
 }
 
+.side-nav li {
+  background: #420002;
+  border-bottom: 1px solid black;
+  margin: 0;
+}
+
+.side-nav li:hover {
+  background: grey;
+}
+
+.side-nav li a:not(.button), .side-nav li a:not(.button):hover {
+  color: white;
+}
+
 /* From http://css-tricks.com/snippets/css/css-box-shadow/ */
 .one-edge-shadow {
   -webkit-box-shadow: 0 8px 6px -6px grey;
      -moz-box-shadow: 0 8px 6px -6px grey;
           box-shadow: 0 8px 6px -6px grey;
+}
+
+.devise-form {
+  background: rgba(100,100,100, 0.7);
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  margin: 50px auto 0 auto;
+  padding: 20px;
+  width: 300px;
+}
+
+.devise-form h2 {
+  color: white;
+}
+
+.devise-form .submit-button {
+  margin: 0;
+}
+
+.devise-form label {
+  color: white;
+  display: inline;
 }
 
 @media only screen and (max-width: 630px) {
