@@ -1,17 +1,39 @@
-<h2>Sign in</h2>
+<div class="devise-form">
+  <h2>Sign in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div><%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <div><%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+    <% if devise_mapping.rememberable? -%>
+      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+    <div class="submit-button"><%= f.submit "Sign in" %></div>
 
-<%= render "devise/shared/links" %>
+    <br />
+    <br />
+
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+
+    <br />
+    <%= link_to "Don't have an account? Sign up", new_user_registration_path %><br />
+    <br />
+
+
+    <div class='facebook-sign-in button'>
+      <i class='fa fa-facebook-square fa-lg'></i>
+      <%= link_to "Sign in with Facebook", omniauth_authorize_path(resource_name, 'facebook') %>
+    </div>
+
+    <br />
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+  <% end %>
+
+</div>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => {
+                                       :omniauth_callbacks => "users/omniauth_callbacks",
+                                       :registrations => "registrations"
+                                      }
   root 'welcome#index'
   get '/courts/search', to: 'courts#search'
   resources :games, only: [:index] do

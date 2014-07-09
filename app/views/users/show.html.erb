@@ -3,7 +3,7 @@
     <li><a href="#"><i class="fa fa-calendar"></i> <span>&nbsp;My Upcoming Games</span></a></li>
     <li><a href="#game-history"><i class="fa fa-history"></i> <span>&nbsp;Game History</span></a></li>
     <li><a href="#subscribed-courts"><i class="fa fa-rss"></i> <span>&nbsp;Courts I'm Subscribed To</span></a></li>
-    <li><a href="#"><i class="fa fa-pencil"></i> <span>&nbsp;Edit My Info</span></a></li>
+    <li><a href="#edit-profile"><i class="fa fa-pencil"></i> <span>&nbsp;Edit My Info</span></a></li>
   </ul>
 </div>
 
@@ -19,6 +19,10 @@
       <li><%%= user.get('name') %></li>
     <%% }); %>
   </ul>
+</script>
+
+<script type="text/template" id="edit-profile-template">
+  <%= render partial: 'devise/registrations/form', locals: { resource: current_user, resource_name: :user, devise_mapping: Devise.mappings[:user] } %>
 </script>
 
 <%= javascript_include_tag 'backboneApp' %>

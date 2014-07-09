@@ -34,8 +34,15 @@ var BallerRouter = Backbone.Router.extend({
       $('#profile-right-section').append(this.subscribedCourtsView.el);
     }.bind(this)});
   },
+  editProfile: function() {
+    this.cleanAndReset();
+    this.editProfileView = new EditProfileView();
+    $('#profile-right-section').append(this.editProfileView.el);
+  },
   cleanAndReset: function(collection) {
-    this.collection = new collection();
+    if (collection !== undefined) {
+      this.collection = new collection();
+    }
     $('#profile-right-section').empty();
   }
 });

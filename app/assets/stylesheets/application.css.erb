@@ -68,6 +68,10 @@ body {
   width: 180px;
 }
 
+#partial-session-new input{
+  border-radius: 5px;
+}
+
 #partial-session-new a {
   color: white;
   font-size: 14px;
@@ -96,17 +100,21 @@ body {
   cursor: pointer;
   font: 14px "Source Sans Pro", "Helvetica", Helvetica, Arial, sans-serif;
   height: 35px;
+}
+
+.sign-in-button input {
   width: 65px;
 }
 
 .facebook-sign-in {
   background: #3B5998;
+  border-radius: 5px;
   padding: 10px;
   text-align: center;
   width: 100%;
 }
 
-.facebook-sign-in a {
+.facebook-sign-in a{
   color: white;
 }
 
@@ -231,22 +239,32 @@ body {
   border: 2px solid white;
   border-radius: 5px;
   color: white;
-  margin: 50px auto 0 auto;
+  margin: 50px auto;
   padding: 20px;
-  width: 300px;
+  width: 30%;
+  min-width: 300px;
 }
 
 .devise-form h2 {
   color: white;
 }
 
+.devise-form a {
+  color: white;
+}
+
 .devise-form .submit-button {
+  color: #420002;
   margin: 0;
 }
 
 .devise-form label {
   color: white;
   display: inline;
+}
+
+.devise-form input {
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 630px) {
