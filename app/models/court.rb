@@ -53,4 +53,8 @@ class Court < ActiveRecord::Base
   def has_current_games?
     self.games.any? {|game| !game.past? }
   end
+
+  def num_current_games
+    self.games.where("start_at > ?", Time.now).size
+  end
 end

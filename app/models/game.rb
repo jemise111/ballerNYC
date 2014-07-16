@@ -5,6 +5,8 @@ class Game < ActiveRecord::Base
   validates(:skill_level, numericality: { only_integer: true }, allow_blank: true)
   # validate(:start_at_cannot_be_in_the_past)
 
+  scope :current, -> { where("start_at > ?", Time.now) }
+
   def start_at_cannot_be_in_the_past
     if start_at && start_at.to_time.to_i < Time.now.to_i
       errors.add(:start_at, 'Start time cannot be in the past')

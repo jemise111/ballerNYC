@@ -8,8 +8,13 @@
     <a href="/courts/<%= court.id %>">
       <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= court.latitude %>,<%= court.longitude %>&size=400x400&zoom=20&maptype=satellite" />
     </a>
-    <div class="result-court-footer">
-      Placeholder Text
+    <div class="result-court-footer with-subscribe-buttons" id="<%= dom_id(court) %>">
+      upcoming games: <%= court.num_current_games %><br />
+      <% if user_signed_in? && current_user.courts.include?(court) %>
+          <button class="unsubscribe-button"><i class="fa fa-check-circle"></i> unsubscribe</button>
+      <% else %>
+          <button class="subscribe-button"><i class="fa fa-rss"></i> subscribe</button>
+      <% end %>
     </div>
   </div>
 </div>

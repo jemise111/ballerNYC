@@ -1,0 +1,8 @@
+<div class="game">
+  <h3><%= game.time_info %></h3>
+  <ul>
+    <% game.users.each do |user| %>
+      <li><%= image_tag(user.image_url ? user.image_url : 'placeholder.png') %> <%= user.name %></li>
+    <% end %>
+  </ul>
+</div>

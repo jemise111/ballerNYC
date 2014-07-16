@@ -1,0 +1,6 @@
+if (<%= @current_user %>) {
+  $('#court_' + <%= @current_court_id %>).find('form').remove();
+  $('#court_' + <%= @current_court_id %>).append('<p class="subscribed-text"><i class="fa fa-check-circle"></i> subscribed</p>');
+} else {
+  $('#court_' + <%= @current_court_id %>).parent().parent().append('<p class="notice"><a href="/">sign in</a> to subscribe</p>')
+}

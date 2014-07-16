@@ -35,6 +35,16 @@ describe Court do
       expect(court.distance_to([40.78, -73.96])).to be_within(0.001).of(0.47)
     end
   end
+
+  describe "num_current_games" do
+    it 'should return the number of games whose start_at time is in the future' do
+      court.games << Game.create(start_at: DateTime.now + 200)
+      court.games << Game.create(start_at: DateTime.now + 100)
+      court.games << Game.create(start_at: DateTime.now - 100)
+      expect(court.games.size).to eq(3)
+      expect(court.num_current_games).to eq(2)
+    end
+  end
   #
   # describe "#has_current_games?" do
   #   it "should return true if a court has games that aren't over 24 hours past" do

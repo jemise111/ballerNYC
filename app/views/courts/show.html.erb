@@ -1,1 +1,30 @@
-<h1><%= @court.name %></h1>
+<div class="court-show-container">
+  <h1><%= @court.name %></h1>
+  <!-- These divs are placeholders for add_court.js -->
+  <div class="court-show-subscribe"><div>
+    <div class="with-subscribe-buttons" id="<%= dom_id(@court) %>">
+      <% if user_signed_in? && current_user.courts.include?(@court) %>
+          <button class="unsubscribe-button"><i class="fa fa-check-circle"></i> unsubscribe</button>
+      <% else %>
+          <button class="subscribe-button"><i class="fa fa-rss"></i> subscribe</button>
+      <% end %>
+    </div>
+  </div></div>
+  <iframe src="<%= @map_url %>" frameborder="0" align="center"></iframe>
+  <div class="court-info-container">
+    <div class="court-info-container-top">
+      <p class='court-info court-address'><%= @court.location %>, <%= @court.borough %></p>
+      <p class='court-info court-num-hoops'>Number of hoops: <%= @court.num_courts.zero? ? 'unknown' : @court.num_courts %></p>
+    </div>
+    <div class="court-games-container">
+      <% @court.games.current.sort_by(&:start_at).each do |game| %>
+        <%= render partial: 'games/game', locals: {game: game} %>
+      <% end %>
+    </div>
+    <div class="court-comments-container">
+      <!-- courts index goes here -->
+      <div class="comment">stuff 1</div>
+      <div class="comment">stuff 2</div>
+    </div>
+  </div>
+</div>

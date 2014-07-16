@@ -1,0 +1,3 @@
+console.log('hello');
+$('#court_' + <%= @current_court_id %>).find('form').remove();
+$('#court_' + <%= @current_court_id %>).append('<button class="unsubscribe-button just-appended"><i class="fa fa-check-circle"></i> unsubscribe</button>');

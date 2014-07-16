@@ -4,6 +4,8 @@ Rails.application.routes.draw do
                                        :registrations => "registrations"
                                       }
   root 'welcome#index'
+  post '/add-court', to: 'courts#add_court'
+  post '/remove-court', to: 'courts#remove_court'
   get '/courts/search', to: 'courts#search'
   resources :games, only: [:index] do
     resources :users, only: [:index]

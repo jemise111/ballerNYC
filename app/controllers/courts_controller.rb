@@ -15,6 +15,7 @@ class CourtsController < ApplicationController
 
   def show
     @court = Court.find(params[:id])
+    @map_url = Google.embed_map_url(@court)
     respond_to do |format|
       format.html {}
       format.json { render json: @court.to_json }
@@ -29,6 +30,19 @@ class CourtsController < ApplicationController
       result_courts = Court.courts_near(lat_lon)
       @limit_result_courts = result_courts.values.sort { |a, b| result_courts.key(a) <=> result_courts.key(b) }.first(20)
     end
+  end
+
+  def add_court
+    current_user.courts << Court.find(params[:court_id]) unless current_user.nil?
+    respond_to do |format|
+      format.html { }
+      format.json { render json: !!current_user }
+    end
+  end
+
+  def remove_court
+    current_user.courts.delete(Court.find(params[:court_id]))
+    render nothing: true
   end
 
   private

@@ -27,6 +27,12 @@ body {
   display: inline;
 }
 
+.notice a, .alert a {
+  color: red;
+  display: inline;
+  text-decoration: underline;
+}
+
 .top-bar .row {
   margin-top: 12px;
 }
@@ -133,11 +139,11 @@ body {
 .result-court-box {
   display: inline-block;
   height: 220px;
-  margin: 20px 10px;
+  margin: 20px 30px;
   position: relative;
   text-align: center;
   vertical-align: middle;
-  width: 250px;
+  width: 200px;
 }
 
 .result-court-box img {
@@ -147,13 +153,14 @@ body {
 
 .result-court-box-inner {
   height: 200px;
+  margin: 0;
   overflow: hidden;
 }
 
 .result-court-header {
   background: #420002;
-  left: 25px;
-  opacity: .6;
+  left: 50;
+  opacity: .9;
   padding: 5px;
   position: absolute;
   top: 0;
@@ -165,11 +172,11 @@ body {
 }
 
 .result-court-footer {
-  background: #650003;
+  background: #420002;
   color: white;
   height: 50px;
   margin: -25px auto 0 auto;
-  opacity: .8;
+  opacity: .7;
   padding: 2px 10px 10px 10px;
   width: 200px;
 }
@@ -193,8 +200,8 @@ body {
 }
 
 #profile-left-bar {
-  background: grey;
   display: inline-block;
+  margin: 5% 0 0 10%;
 }
 
 #profile-left-bar span {
@@ -239,10 +246,7 @@ body {
   border: 2px solid white;
   border-radius: 5px;
   color: white;
-  margin: 50px auto;
-  padding: 20px;
-  width: 30%;
-  min-width: 300px;
+  padding: 5%;
 }
 
 .devise-form h2 {
@@ -267,6 +271,94 @@ body {
   border-radius: 5px;
 }
 
+.edit-profile-container {
+  margin: 10% 0 0 10%;
+  min-width: 300px;
+}
+
+.with-subscribe-buttons button {
+  border-radius: 5px;
+  display: inline-block;
+  margin: 8px 0;
+  padding: 0px 10px;
+}
+
+.subscribe-button, .subscribe-button:active, .subscribe-button:focus, .subscribe-button:hover {
+  background: white;
+  color: #420002;
+  /* to match unsubscribe button width */
+  height: 22px;
+  width: 117px;
+}
+
+.unsubscribe-button, .unsubscribe-button:active, .unsubscribe-button:focus, .unsubscribe-button:hover {
+  background: none;
+  border: 1px solid white;
+  color: white;
+}
+
+.court-show-container h1 {
+  color: white;
+  text-align: center;
+}
+
+.court-show-container iframe {
+  display: block;
+  height: 400px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.court-info-container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.court-info {
+  color: white;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.court-info-container-top {
+  margin: 0 0 20px 0;
+}
+
+.court-address {
+  font-size: 1.5em;
+}
+
+.court-num-hoops {
+  font-size: 1em;
+}
+
+.game {
+  background: white;
+  color: #420002;
+  margin: 10px 0;
+  padding: 2px;
+}
+
+.game ul {
+  list-style: none;
+}
+
+.game li {
+  display: inline-block;
+  width: 45%;
+}
+
+.game img {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+}
+
+.court-show-subscribe {
+  color: white;
+  text-align: center;
+}
+
 @media only screen and (max-width: 630px) {
   .top-bar-section ul {
     width: 50%;
@@ -289,6 +381,10 @@ body {
     margin: 10px auto 0 auto;
     position: static;
     width: 80%;
+  }
+
+  #profile-left-bar {
+    margin: 5% 0 0 0;
   }
 
   #profile-left-bar span {

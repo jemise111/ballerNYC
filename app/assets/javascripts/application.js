@@ -23,6 +23,8 @@ $(document).ready(function(){
   animatedTyping();
   learnMoreLink();
   displaySignInForm();
+  courtSubscribe();
+  courtUnsubscribe();
 });
 
 function navSearchBox() {
@@ -102,7 +104,44 @@ function learnMoreLink() {
 }
 
 function displaySignInForm() {
-  setTimeout(function() {
+  // setTimeout(function() {
     $('#sign-in-form').css('visibility','visible').hide().fadeIn('slow');
-  }, 3500);
+  // }, 3500);
+}
+
+function courtSubscribe() {
+  $('.with-subscribe-buttons').on('click', '.subscribe-button', function(){
+    var courtID = $(this).parent().attr('id').replace(/court_/, '');
+    $.ajax({
+      url: '/add-court',
+      type: 'post',
+      data: {
+        court_id: courtID
+      },
+      dataType: 'json'
+    }).done(function(currentUser){
+      if (currentUser) {
+        $(this).parent().append('<button class="unsubscribe-button"><i class="fa fa-check-circle"></i> unsubscribe</button>');
+        $(this).remove();
+      } else {
+        $(this).parent().parent().parent().append('<p class="notice"><a href="/">sign in</a> to subscribe</p>');
+      }
+    }.bind(this));
+  });
+}
+
+function courtUnsubscribe() {
+  $('.with-subscribe-buttons').on('click', '.unsubscribe-button', function(){
+    var courtID = $(this).parent().attr('id').replace(/court_/, '');
+    $.ajax({
+      url: '/remove-court',
+      type: 'post',
+      data: {
+        court_id: courtID
+      }
+    }).done(function(){
+      $(this).parent().append('<button class="subscribe-button"><i class="fa fa-rss"></i> subscribe</button>');
+      $(this).remove();
+    }.bind(this));
+  });
 }
